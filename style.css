@@ -1,0 +1,27 @@
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.team {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.team img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.team p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #ffcc00;
+}
