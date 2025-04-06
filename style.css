@@ -1,3 +1,14 @@
+```css
+/* Base styles */
+:root {
+  --primary-color: #ffcc00;
+  --secondary-color: rgba(0, 0, 0, 0.6);
+  --border-radius: 8px;
+  --padding-standard: 15px;
+  --transition-speed: 0.3s;
+}
+
+/* Team Grid Layout */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -6,11 +17,32 @@
     margin-top: 20px;
 }
 
+@media (min-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .team-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+}
+
+/* Team Card */
 .team {
     background: rgba(0, 0, 0, 0.6);
     padding: 15px;
     border-radius: 8px;
     text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.team:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.2);
 }
 
 .team img {
@@ -23,5 +55,185 @@
 .team p {
     margin-top: 10px;
     font-size: 18px;
-    color: #ffcc00;
+    color: var(--primary-color);
 }
+
+.team .title {
+    font-size: 14px;
+    color: #fff;
+    margin-top: 5px;
+}
+
+/* Team Details Page */
+.team-details {
+    background: var(--secondary-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.team-details-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.team-details-image {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+}
+
+.team-details-info h2 {
+    color: var(--primary-color);
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.team-details-bio {
+    color: #fff;
+    line-height: 1.6;
+}
+
+.team-details-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.stat-item {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 12px;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.stat-value {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-top: 5px;
+}
+
+/* Login/Signup Forms */
+.auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: var(--secondary-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.auth-header h2 {
+    color: var(--primary-color);
+    font-size: 24px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    color: #fff;
+    font-size: 14px;
+}
+
+.form-group input {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.auth-button {
+    background-color: var(--primary-color);
+    color: #000;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color var(--transition-speed);
+}
+
+.auth-button:hover {
+    background-color: #e6b800;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.auth-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* Toggle between login/signup */
+.tab-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    color: #ccc;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.tab-button:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.tab-button:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.tab-button.active {
+    background-color: var(--primary-color);
+    color: #000;
+}
+```
