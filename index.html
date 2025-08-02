@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPL Website - Login</title>
-    <link rel="stylesheet" href="/styles/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IPL Website - Login</title>
+  <link rel="stylesheet" href="/styles/style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to IPL World</h1>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Enter Username" required>
-            <input type="password" id="password" placeholder="Enter Password" required>
-            <button type="submit">Login</button>
-        </form>
-        <p>New user? <a href="#">Sign Up</a></p>
-    </div>
+  <div class="container">
+    <h1>Welcome to IPL World</h1>
+    
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Enter Email" required />
+      <input type="password" id="password" placeholder="Enter Password" required />
+      <button type="submit" id="loginBtn">Login</button>
+      <button type="button" id="signupBtn">Sign Up</button>
+    </form>
 
-    <script src="/scripts/script.js"></script>
+    <p id="statusMsg"></p>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"></script>
+
+  <script>
+    // Paste your real config here
+    const firebaseConfig = {
+      apiKey: "AIzaSyCMyh_qclc6UIlYh74nx97WvBT2UaXuxEQ",
+      authDomain: "authenticate-user-93577.firebaseapp.com",
+      projectId: "authenticate-user-93577",
+      storageBucket: "authenticate-user-93577.firebasestorage.app",
+      messagingSenderId: "40686238572",
+      appId: "1:40686238572:web:bd06529f88f0f5c91c9149"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- Your custom JS -->
+  <script src="/scripts/script.js"></script>
 </body>
 </html>
