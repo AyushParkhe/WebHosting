@@ -1,22 +1,56 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Handle Login
+    // ====== Firebase Config & Init ======
+    const firebaseConfig = {
+        apiKey: "AIzaSyCMyh_qclc6UIlYh74nx97WvBT2UaXuxEQ",
+        authDomain: "authenticate-user-93577.firebaseapp.com",
+        projectId: "authenticate-user-93577",
+        storageBucket: "authenticate-user-93577.firebasestorage.app",
+        messagingSenderId: "40686238572",
+        appId: "1:40686238572:web:bd06529f88f0f5c91c9149"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // ====== Handle Firebase Login ======
     const loginForm = document.getElementById("loginForm");
+    const loginBtn = document.getElementById("loginBtn");
+    const signupBtn = document.getElementById("signupBtn");
+
     if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
-            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
 
-            if (username && password) {
-                alert("Login successful!");
-                window.location.href = "teams.html"; // Redirect to team list page
-            } else {
-                alert("Please enter valid credentials.");
-            }
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    alert("Login successful!");
+                    window.location.href = "teams.html"; // redirect on login
+                })
+                .catch((error) => {
+                    alert("Login failed: " + error.message);
+                });
         });
     }
 
-    // Handle Team Details Page
+    if (signupBtn) {
+        signupBtn.addEventListener("click", function () {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    alert("Signup successful!");
+                    // Optionally redirect or stay on page
+                })
+                .catch((error) => {
+                    alert("Signup failed: " + error.message);
+                });
+        });
+    }
+
+    // ====== IPL Team Details Logic ======
     const teamData = {
         "CSK": { logo: "images/csk.jpg", tagline: "Whistle Podu", titles: 5, playoffs: 12, mostRuns: "Suresh Raina", mostWickets: "Dwayne Bravo", insta: "https://www.instagram.com/chennaiipl/" },
         "MI": { logo: "images/mi.jpg", tagline: "Duniya Hila Denge", titles: 5, playoffs: 10, mostRuns: "Rohit Sharma", mostWickets: "Lasith Malinga", insta: "https://www.instagram.com/mumbaiindians/" },
