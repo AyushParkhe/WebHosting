@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <h1>Welcome to IPL World</h1>
-    
+
     <form id="loginForm">
       <input type="email" id="email" placeholder="Enter Email" required />
       <input type="password" id="password" placeholder="Enter Password" required />
@@ -20,27 +20,26 @@
     <p id="statusMsg"></p>
   </div>
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
   <script>
-    // Paste your real config here
+    // Your web app's Firebase configuration
     const firebaseConfig = {
-      apiKey: "AIzaSyCMyh_qclc6UIlYh74nx97WvBT2UaXuxEQ",
-      authDomain: "authenticate-user-93577.firebaseapp.com",
-      projectId: "authenticate-user-93577",
-      storageBucket: "authenticate-user-93577.firebasestorage.app",
-      messagingSenderId: "40686238572",
-      appId: "1:40686238572:web:bd06529f88f0f5c91c9149"
+      apiKey: "AIzaSyBENGsALGd74uDspP0O_pPO8P13XcmP-uk",
+      authDomain: "mystaticsitebackend.firebaseapp.com",
+      projectId: "mystaticsitebackend",
+      storageBucket: "mystaticsitebackend.firebasestorage.app",
+      messagingSenderId: "843243209565",
+      appId: "1:843243209565:web:09a7504b06280577ba1eb4"
     };
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+    // Initialize Firebase and create global references for script.js
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = app.auth(); // Now available to script.js
+    const db = app.firestore(); // Now available to script.js
   </script>
-
-  <!-- Your custom JS -->
-  <script src="/scripts/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
