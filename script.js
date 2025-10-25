@@ -1,17 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
     // ====== Firebase Config & Init ======
-    const firebaseConfig = {
-        apiKey: "AIzaSyCMyh_qclc6UIlYh74nx97WvBT2UaXuxEQ",
-        authDomain: "authenticate-user-93577.firebaseapp.com",
-        projectId: "authenticate-user-93577",
-        storageBucket: "authenticate-user-93577.firebasestorage.app",
-        messagingSenderId: "40686238572",
-        appId: "1:40686238572:web:bd06529f88f0f5c91c9149"
+ const firebaseConfig = {
+      apiKey: "AIzaSyBENGsALGd74uDspP0O_pPO8P13XcmP-uk",
+      authDomain: "mystaticsitebackend.firebaseapp.com",
+      projectId: "mystaticsitebackend",
+      storageBucket: "mystaticsitebackend.firebasestorage.app",
+      messagingSenderId: "843243209565",
+      appId: "1:843243209565:web:09a7504b06280577ba1eb4"
     };
 
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
+    // Initialize Firebase and create global references for script.js
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = app.auth(); // Now available to script.js
+    const db = app.firestore(); // Now available to script.js
     // ====== Handle Firebase Login ======
     const loginForm = document.getElementById("loginForm");
     const loginBtn = document.getElementById("loginBtn");
